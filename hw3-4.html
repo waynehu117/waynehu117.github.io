@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="CNIT 133 Assignment: Homework 4">
+<meta name="keywords" content="HTML,CSS,Javascript, Homework, Part 4">
+<meta name="author" content="Wayne">
+<title>Homework 3 - Part 4</title>
+
+<style>
+
+input.t {
+    text-align: right;
+
+    }
+
+body { background-color:  #FFFFCC;}
+
+</style>
+    
+<script>
+// process function starts the multiplication game with variables declared and min 1 max 10
+function process() {
+var numberOne, numberTwo, response, answer, input;
+var min = 1;
+var max = 10;
+    
+// assign 2 variables to be a random integer between 1 and 9
+numberOne = Math.floor(Math.random() * 10);
+numberTwo = Math.floor(Math.random() * 10);
+    
+// multiplay the 2 integers to get the answer
+answer = numberOne * numberTwo;
+
+// prompt that asks user to give an answer and parse to integer assigning that to the input   
+response = prompt("How much is " + numberOne + " times " + numberTwo + "?");
+input = parseInt(response);
+    
+// if user does not answer correct, it will ask the user again, otherwise break
+while (input != answer)
+    {
+        if (input == answer)
+            {
+                break;
+            }
+        else
+            {
+                input = prompt("No. Please try again. How much is " + numberOne + " times " + numberTwo + "?");
+            }
+    }
+
+// after the break from previous statement, alert user that is correct then run second function that is inside process()
+window.alert("Very good!")
+goAgain();
+    
+// function to ask if user wants to play again, clicking OK returns value true and runs process again
+function goAgain(){
+    if (window.confirm("Play again?") == true)
+        {
+            process();
+        }
+}
+    
+
+
+}  
+</script>
+
+
+    
+    
+</head>
+
+<body>
+
+<section>
+
+<h3>Homework 3 - Part 4</h3>
+
+
+<form name="myform">
+
+<h3>Multiplication game. Click the Start Game button to start.</h3>
+
+<p><input type="button" onclick="process();" value="Start Game"></p>
+
+
+
+</form>
+<br>
+
+</section>
+    
+<ul>
+<li><a href="hw3-1.html">Part 1: Student's Final Average</a></li>
+<li><a href="hw3-2.html">Part 2: Salesperson's Earnings</a></li>
+<li><a href="hw3-3.html">Part 3: Fahrenheit and Celsius Conversion</a></li>
+<li><a href="hw3-4.html">Part 4: Multiplication Game</a></li>
+</ul>
+
+</body>
+</html>

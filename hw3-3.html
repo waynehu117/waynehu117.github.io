@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="CNIT 133 Assignment: Homework 3">
+<meta name="keywords" content="HTML,CSS,Javascript, Homework, Part 3">
+<meta name="author" content="Wayne">
+<title>Homework 3 - Part 3</title>
+
+<style>
+
+input.t {
+    text-align: right;
+
+    }
+
+body { background-color:  #FFFFCC;}
+
+</style>
+    
+<script>
+
+function celsiusConvert()
+{
+// define variables
+var fahrenheit, celsius, fahrenP, fahren;
+    
+// get fahren input from form by user
+fahren = document.forms["myform"].elements["fahrenheit"].value;
+
+// change string to integer
+fahrenP = parseInt(fahren);   
+
+// formula to calculate celsius
+celsius = (5/9) * (fahrenP - 32);
+
+// run script to convert fahrenheit to celsius
+    
+if (isNaN(fahrenP))
+    {
+        window.alert("Please enter a number.")
+    }
+    else 
+        {
+        document.forms["myform"].elements["result"].value = (fahrenP + " degrees Fahrenheit is equal to " + celsius.toFixed(2) + " degrees Celsius."); 
+        }   
+
+}     
+</script>
+<script>
+
+function fahrenheitConvert()
+{
+// define variables
+var fahrenheit, celsius, celsP, cels;
+    
+// get celsius input from form by user
+cels = document.forms["myform"].elements["celsius"].value;
+
+// change string to integer
+celsP = parseInt(cels);   
+
+// formula to calculate fahrenheit
+fahrenheit = (9/5 * celsP) + 32;
+
+// run script to convert celsius to fahrenheit
+    
+if (isNaN(celsP))
+    {
+        window.alert("Please enter a number.")
+    }
+    else 
+        {
+        document.forms["myform"].elements["result"].value = (celsP + " degrees Celsius is equal to " + fahrenheit.toFixed(2) + " degrees Fahrenheit."); 
+        }   
+
+}     
+</script>
+
+    
+    
+</head>
+
+<body>
+
+<section>
+
+<h3>Homework 3 - Part 3</h3>
+
+
+<form name="myform">
+
+<h3>Enter a number as celsius to return the fahrenheit equivalent or a fahrenheit number to get the celsius</h3>
+
+Fahrenheit: <input class="t" type="text" name="fahrenheit" size="8"><br>
+<input type="button" onclick="celsiusConvert()" value="Convert to Celsius"><br><br>
+Celsius: <input class="t" type="text" name="celsius" size="8"><br>
+<input type="button" onclick="fahrenheitConvert()" value="Convert to Fahrenheit"><br><br>
+<input type="reset" value="Reset"><br><br>
+<textarea rows="5" cols="40" name="result"></textarea>
+
+
+
+
+</form>
+<br>
+
+</section>
+    
+<ul>
+<li><a href="hw3-1.html">Part 1: Student's Final Average</a></li>
+<li><a href="hw3-2.html">Part 2: Salesperson's Earnings</a></li>
+<li><a href="hw3-3.html">Part 3: Fahrenheit and Celsius Conversion</a></li>
+<li><a href="hw3-4.html">Part 4: Multiplication Game</a></li>
+</ul>
+
+</body>
+</html>

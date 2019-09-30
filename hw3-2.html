@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="CNIT 133 Assignment: Homework 3">
+<meta name="keywords" content="HTML,CSS,Javascript, Homework, Part 2">
+<meta name="author" content="Wayne">
+
+<title>HW3 - Part 2</title>
+
+<style>
+
+input.t {text-align: right;}
+
+body { background-color:  #FFFFCC;}
+
+input.sp {display: inline-block;}
+    
+</style>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$(function() {
+    $(document).tooltip();
+}   );
+
+</script>
+    
+<script>
+    
+function process()
+{
+// define variables
+var item1, item2, item3, item4, soldItem1, soldItem2, soldItem3, soldItem4, item1P, item2P, item3P, item4P, totalItem1, totalItem2, totalItem3, totalItem4, totalSold, totalEarning;
+
+// get data from user input    
+soldItem1 = document.forms["salesperson_total"].elements["num_item1"].value;
+soldItem2 = document.forms["salesperson_total"].elements["num_item2"].value; 
+soldItem3 = document.forms["salesperson_total"].elements["num_item3"].value; 
+soldItem4 = document.forms["salesperson_total"].elements["num_item4"].value;
+
+// parseInt the number of items sold    
+item1P = parseInt(soldItem1);
+item2P = parseInt(soldItem2);
+item3P = parseInt(soldItem3);
+item4P = parseInt(soldItem4);
+    
+totalItem1 = item1P * 239.99;
+totalItem2 = item2P * 129.75;
+totalItem3 = item3P * 99.95;
+totalItem4 = item4P * 350.89;
+
+// add up total amount for all items sold    
+totalSold = totalItem1 + totalItem2 + totalItem3 + totalItem4;
+
+// calculate total earnings    
+totalEarning = 200 + (0.09 * totalSold);
+    
+// run if else statement so that NaN or a number less than 0 would return an error    
+if (isNaN(item1P) || isNaN(item2P) || isNaN(item3P) || isNaN(item4P) || item1P < 0 || item2P < 0 || item3P < 0 || item4P < 0)
+    {
+        
+        window.alert("Value has to be a number and cannot be less than 0")
+    }
+    
+    else 
+    {
+
+        document.forms["salesperson_total"].elements["int_item1"].value = (item1P);   
+        document.forms["salesperson_total"].elements["int_item2"].value = (item2P);
+        document.forms["salesperson_total"].elements["int_item3"].value = (item3P);
+        document.forms["salesperson_total"].elements["int_item4"].value = (item4P);
+    
+        document.forms["salesperson_total"].elements["total_item1"].value = (totalItem1.toFixed(2));
+        document.forms["salesperson_total"].elements["total_item2"].value = (totalItem2.toFixed(2));
+        document.forms["salesperson_total"].elements["total_item3"].value = (totalItem3.toFixed(2));
+        document.forms["salesperson_total"].elements["total_item4"].value = (totalItem4.toFixed(2));
+
+        document.forms["salesperson_total"].elements["final_total"].value = (totalSold.toFixed(2));
+
+        document.forms["salesperson_total"].elements["salary"].value = (totalEarning.toFixed(2));
+
+    }
+
+
+
+    
+    
+}
+</script>
+
+</head>
+
+<body>
+
+<section>
+
+<h3>Homework 3 - Part 2</h3>
+
+
+<form name="salesperson_total">
+
+
+Salesperson: <input type="text" name="sp" size="20" title="Please make sure that the salesperson's name is spelled correctly."><br><br>
+
+<h3>Input the number of items sold for each item number:</h3>
+
+Item 1: <input class="t" type="text" name="num_item1" size="8"><br>
+Item 2: <input class="t" type="text" name="num_item2" size="8"><br>
+Item 3: <input class="t" type="text" name="num_item3" size="8"><br>
+Item 4: <input class="t" type="text" name="num_item4" size="8"><br><br>
+<input type="button" onclick="process()" value="Submit">
+<input type="reset" value="Reset"><br><br>
+
+
+<table>
+<tr><th>Item #</th><th>Price</th><th>Number Sold</th><th>Total</th></tr>
+
+<tr><td>1</td><td>$239.99</td><td><input type="text" class="t" name="int_item1"></td><td><input type="text"  class="t" name="total_item1"></td></tr>
+<tr><td>2</td><td>$129.75</td><td><input type="text" class="t" name="int_item2"></td><td><input type="text"  class="t" name="total_item2"></td></tr>
+<tr><td>3</td><td>$99.95</td><td><input type="text" class="t" name="int_item3"></td><td><input type="text"  class="t" name="total_item3"></td></tr>
+<tr><td>4</td><td>$350.89</td><td><input type="text" class="t" name="int_item4"></td><td><input type="text" class="t" name="total_item4"></td></tr>
+<tr><td colspan="3">Total Amount Sold:</td><td><input type="text" class="t" name="final_total"></td></tr>
+<tr><td colspan="3">Total Weekly Earnings:</td><td><input type="text"  class="t" name="salary"></td></tr>
+</table>
+
+</form>
+<br>
+
+
+</section>
+
+<ul>
+<li><a href="hw3-1.html">Part 1: Student's Final Average</a></li>
+<li><a href="hw3-2.html">Part 2: Salesperson's Earnings</a></li>
+<li><a href="hw3-3.html">Part 3: Fahrenheit and Celsius Conversion</a></li>
+<li><a href="hw3-4.html">Part 4: Multiplication Game</a></li>
+</ul>
+    
+</body>
+</html>

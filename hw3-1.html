@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="description" content="CNIT 133 Assignment: Homework 3">
+<meta name="keywords" content="HTML,CSS,Javascript, Homework, Part 1">
+<meta name="author" content="Wayne">
+<title>Homework 3 - Part 1</title>
+
+<style>
+
+input.t {
+    text-align: right;
+
+    }
+
+body { background-color:  #FFFFCC;}
+
+</style>
+    
+<script>
+
+function process()
+{
+// define variables
+var finalAverage, hwAvg, midExam, finalExam, participation, hwAvgInteger, midExamInteger, finalExamInteger, participationInteger, finalAverage, finalAverageF;
+// get student input from form using getElementById
+
+homework = document.forms["myform"].elements["hwAvg"].value;
+midterm = document.forms["myform"].elements["midExam"].value;
+final = document.forms["myform"].elements["finalExam"].value;
+partic = document.forms["myform"].elements["participation"].value;
+
+// change string to integer
+hwAvgInteger = parseInt(homework);   
+midExamInteger = parseInt(midterm);
+finalExamInteger = parseInt(final);
+participationInteger = parseInt(partic);
+
+// formula to calculate final average
+finalAverage = (.5 * hwAvgInteger) + (.2 * midExamInteger) + (.2 * finalExamInteger) + (.1 * participationInteger);
+finalAverageF = Math.round(finalAverage);
+
+// if statement for if any of the values not a number or less than 0 or greater than 100, otherwise provide grade based on avg
+    
+if (isNaN(hwAvgInteger) || isNaN(midExamInteger) || isNaN(finalExamInteger) || isNaN(participationInteger) || hwAvgInteger < 0 || midExamInteger < 0 || finalExamInteger < 0 || participationInteger < 0 || hwAvgInteger > 100 || midExamInteger > 100 || finalExamInteger > 100 || participationInteger > 100)
+    {
+        document.forms["myform"].elements["result"].value = ("Values must be numbers and between 0 and 100.");
+    }
+    else if (finalAverage >= 90) 
+    {
+        document.forms["myform"].elements["result"].value = ("Final average: " + finalAverageF + ". " + "Final grade is an A.");
+    }
+    else if (finalAverage >= 80)
+    {
+        document.forms["myform"].elements["result"].value = ("Final average: " + finalAverageF + ". " + "Final grade is an B.");
+    }
+    else if (finalAverage >= 70)
+    {
+        document.forms["myform"].elements["result"].value = ("Final average: " + finalAverageF + ". " + "Final grade is an C.");
+    }
+    else if (finalAverage >= 60)
+    {
+        document.forms["myform"].elements["result"].value = ("Final average: " + finalAverageF + ". " + "Final grade is an D. Student must retake the course.");    
+    }
+    else 
+        document.forms["myform"].elements["result"].value = ("Final average: " + finalAverageF + ". " + "Final grade is an F. Student must retake the course."); 
+    
+    
+}     
+</script>
+    
+</head>
+
+<body>
+
+<section>
+
+<h3>Homework 3 - Part 1</h3>
+
+
+<form name="myform">
+
+<h3>Enter a number between 0-100 to calculate student's final average</h3>
+
+Homework Average: <input class="t" type="text" name="hwAvg" size="8"><br>
+Midterm Exam Score: <input class="t" type="text" name="midExam" size="8"><br>
+Final Exam Score: <input class="t" type="text" name="finalExam" size="8"><br>
+Participation: <input class="t" type="text" name="participation" size="8"><br><br>
+<input type="button" onclick="process()" value="Submit">
+<input type="reset" value="Reset"><br><br>
+<textarea rows="5" cols="40" name="result"></textarea>
+
+
+
+
+</form>
+<br>
+
+</section>
+    
+<ul>
+<li><a href="hw3-1.html">Part 1: Student's Final Average</a></li>
+<li><a href="hw3-2.html">Part 2: Salesperson's Earnings</a></li>
+<li><a href="hw3-3.html">Part 3: Fahrenheit and Celsius Conversion</a></li>
+<li><a href="hw3-4.html">Part 4: Multiplication Game</a></li>
+</ul>
+
+</body>
+</html>
